@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="userentry_subreport" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="offence_type" class="java.lang.String"/>
+	<field name="offence_code" class="java.lang.String"/>
+	<field name="act" class="java.lang.String"/>
+	<field name="act_origin" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="41" width="246" height="20"/>
+				<textElement/>
+				<text><![CDATA[offence_type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="41" width="76" height="20"/>
+				<textElement/>
+				<text><![CDATA[offence_code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="41" width="55" height="20"/>
+				<textElement/>
+				<text><![CDATA[act]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="439" y="41" width="116" height="20"/>
+				<textElement/>
+				<text><![CDATA[act_origin]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="0" width="246" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{offence_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="0" width="76" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{offence_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="362" y="0" width="55" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{act}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="0" width="116" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{act_origin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,199 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.tp.general.tableClasses;
+
+/**
+ *
+ * @author jpss
+ */
+public class TrafficPoliceSearchBean {
+    private int traffic_police_id;
+    private String vehicle_no;
+    private String offender_name;
+    private String offender_license_no;
+    private int offence_type_id;
+    private double deposited_amount;
+    private int book_no;
+    private int book_revision_no;
+    private String reciept_no;
+    private String offence_date;
+    private int city_location_id;
+    private String offence_code;
+    private String officer_name;
+    int deposit_amount;
+    private String jarayam_no;
+    private String[] offence_codeM;
+    private String offence_type;
+    private String lattitude;
+    private String longitude;
+    private String processing_type;
+
+    public void setProcessing_type(String processing_type) {
+        this.processing_type = processing_type;
+    }
+
+    public String getProcessing_type() {
+        return processing_type;
+    }
+
+    public String getLattitude() {
+        return lattitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLattitude(String lattitude) {
+        this.lattitude = lattitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+
+    public String getOffence_type() {
+        return offence_type;
+    }
+
+    public void setOffence_type(String offence_type) {
+        this.offence_type = offence_type;
+    }
+
+    public String[] getOffence_codeM() {
+        return offence_codeM;
+    }
+
+    public void setOffence_codeM(String[] offence_codeM) {
+        this.offence_codeM = offence_codeM;
+    }
+
+
+    public String getJarayam_no() {
+        return jarayam_no;
+    }
+
+    public void setJarayam_no(String jarayam_no) {
+        this.jarayam_no = jarayam_no;
+    }
+    
+
+    public int getBook_no() {
+        return book_no;
+    }
+
+    public int getBook_revision_no() {
+        return book_revision_no;
+    }
+
+    public int getCity_location_id() {
+        return city_location_id;
+    }
+
+    public double getDeposited_amount() {
+        return deposited_amount;
+    }
+
+    public String getOffence_date() {
+        return offence_date;
+    }
+
+    public int getOffence_type_id() {
+        return offence_type_id;
+    }
+
+    public String getOffender_license_no() {
+        return offender_license_no;
+    }
+
+    public String getOffender_name() {
+        return offender_name;
+    }
+
+    public String getReciept_no() {
+        return reciept_no;
+    }
+
+    public int getTraffic_police_id() {
+        return traffic_police_id;
+    }
+
+    public String getVehicle_no() {
+        return vehicle_no;
+    }
+
+    public void setBook_no(int book_no) {
+        this.book_no = book_no;
+    }
+
+    public void setBook_revision_no(int book_revision_no) {
+        this.book_revision_no = book_revision_no;
+    }
+
+    public void setCity_location_id(int city_location_id) {
+        this.city_location_id = city_location_id;
+    }
+
+    public void setDeposited_amount(double deposited_amount) {
+        this.deposited_amount = deposited_amount;
+    }
+
+    public void setOffence_date(String offence_date) {
+        this.offence_date = offence_date;
+    }
+
+    public void setOffence_type_id(int offence_type_id) {
+        this.offence_type_id = offence_type_id;
+    }
+
+    public void setOffender_license_no(String offender_license_no) {
+        this.offender_license_no = offender_license_no;
+    }
+
+    public void setOffender_name(String offender_name) {
+        this.offender_name = offender_name;
+    }
+
+    public void setReciept_no(String reciept_no) {
+        this.reciept_no = reciept_no;
+    }
+
+    public void setTraffic_police_id(int traffic_police_id) {
+        this.traffic_police_id = traffic_police_id;
+    }
+
+    public void setVehicle_no(String vehicle_no) {
+        this.vehicle_no = vehicle_no;
+    }
+
+    public int getDeposit_amount() {
+        return deposit_amount;
+    }
+
+    public void setDeposit_amount(int deposit_amount) {
+        this.deposit_amount = deposit_amount;
+    }
+
+    public String getOffence_code() {
+        return offence_code;
+    }
+
+    public void setOffence_code(String offence_code) {
+        this.offence_code = offence_code;
+    }
+
+    public String getOfficer_name() {
+        return officer_name;
+    }
+
+    public void setOfficer_name(String officer_name) {
+        this.officer_name = officer_name;
+    }
+
+
+
+}

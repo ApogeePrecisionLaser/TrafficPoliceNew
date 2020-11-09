@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="195"/>
+	<parameter name="vehicle_owner_name" class="java.lang.String"/>
+	<field name="city" class="java.lang.String"/>
+	<field name="deposited_amount" class="java.lang.String"/>
+	<field name="vehicle_no" class="java.lang.String"/>
+	<field name="offence_date" class="java.lang.String"/>
+	<field name="offence_type" class="java.lang.String"/>
+	<field name="act_origin" class="java.lang.String"/>
+	<field name="penalty_amount" class="java.lang.String"/>
+	<field name="imgPath" class="java.lang.String"/>
+	<field name="imgPath1" class="java.lang.String"/>
+	<field name="challan_no" class="java.lang.String"/>
+	<field name="vehicle_class" class="java.lang.String"/>
+	<field name="office_mob_no" class="java.lang.String"/>
+	<field name="portal_name" class="java.lang.String"/>
+	<field name="website_link" class="java.lang.String"/>
+	<field name="father_name" class="java.lang.String"/>
+	<field name="offender_address" class="java.lang.String"/>
+	<field name="offender_mob_no" class="java.lang.String"/>
+	<field name="police_logoPath" class="java.lang.String"/>
+	<variable name="S_No1" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{S_No1}+1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="229" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="19" width="49" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ई -चालान]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="11" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[थाना-यातायात]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="31" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[सिटी सेन्टर]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="51" width="100" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ग्वालियर  (मध्यप्रदेश)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="447" y="71" width="44" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[फोन - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="61" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[नोटिस]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="91" width="61" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[सर/मैडम]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="129" width="527" height="20"/>
+				<textElement textAlignment="Left">
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[Intelligent Traffic Mangement System द्वारा यातायात पुलिस ग्वालियर ने पहचान की है कि  आप /आपके  ड्राइवर  द्वारा वाहन  नम्बर]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="149" width="427" height="20"/>
+				<textElement textAlignment="Left">
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[को चलाते हुए, निम्न स्थान/दिनांक /समय पर  यातायात के नियमो का उलंघन किया  गया हैं , ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="169" width="527" height="20"/>
+				<textElement textAlignment="Left">
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[जो निम्न  प्रकार से मोटर यान  अधिनियम 1988 के  अंतर्गत अपराध है ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="491" y="71" width="56" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{office_mob_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="149" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vehicle_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="354" y="91" width="193" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{website_link}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="201" width="40" height="28"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[प्रति,]]></text>
+			</staticText>
+			<image>
+				<reportElement x="199" y="1" width="165" height="50"/>
+				<imageExpression><![CDATA[$F{police_logoPath}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="255" y="19" width="99" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{police_logoPath}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="132" y="0" width="88" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Vehicle Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="301" y="0" width="84" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[City Location]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="385" y="0" width="85" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Offence Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="470" y="0" width="85" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Deposit Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="132" y="20" width="88" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vehicle_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="385" y="20" width="85" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{offence_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="470" y="20" width="85" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{deposited_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="40" y="20" width="92" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{challan_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="40" y="0" width="92" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Challan Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="220" y="0" width="81" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Vehicle Class]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="220" y="20" width="81" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{vehicle_class}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="53" width="100" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[नियमो का उलंघन]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="0" width="264" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Offence Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="0" width="91" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ACT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="100" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Penalty amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="0" width="100" height="21"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[S. No.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="100" y="0" width="264" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{offence_type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="0" width="91" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{act_origin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{penalty_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-1" y="-1" width="100" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{S_No1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1" splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band height="343" splitType="Stretch">
+			<image>
+				<reportElement x="288" y="11" width="235" height="150"/>
+				<imageExpression><![CDATA[$F{imgPath1}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="447" y="48" width="76" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{imgPath1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="68" width="66" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{imgPath}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="110" y="161" width="73" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[MR/MRS -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="181" width="74" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[S/O,D/O - ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="184" y="181" width="201" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{father_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="201" width="201" height="45"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA[$F{offender_address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="111" y="201" width="73" height="45"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="246" width="73" height="21"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Mobile No -]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="183" y="246" width="202" height="21"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{offender_mob_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="38" y="274" width="103" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[इस हेतु आप शमन शुल्क]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="274" width="41" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[रूपये]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="274" width="70" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[पोर्टल]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="294" width="58" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[अथवा]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="294" width="380" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[के अधिकृत Kiosk मे प्राप्ति दिनांक से 15 दिवस के अंदर जमा कर रसीद प्राप्त करे]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="314" width="511" height="20"/>
+				<textElement>
+					<font pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[अन्यथा आपके विरुद्ध अग्रिम वैधानिक कार्यवाही की जाएगी]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="273" y="274" width="93" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{portal_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="99" y="294" width="73" height="20"/>
+				<textElement/>
+				<text><![CDATA[MP Online]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="144" y="274" width="88" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{deposited_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="161" width="202" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{vehicle_owner_name}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="12" y="11" width="231" height="150"/>
+				<imageExpression><![CDATA[$F{imgPath}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement mode="Opaque" x="423" y="201" width="84" height="20"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="C:\\Windows\\Fonts\\Mangal.TTF" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

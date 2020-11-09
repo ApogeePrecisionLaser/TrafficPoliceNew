@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7c6f4eda-14af-49e6-9628-221655aa12e2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1115"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Administrator\\Documents\\NetBeansProjects\\TrafficPolice\\web\\report\\shift\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="vehicle_no" class="java.lang.String"/>
+	<field name="traffic_police_id" class="java.lang.Integer"/>
+	<field name="vehicle_owner_name" class="java.lang.String"/>
+	<field name="offender_mob_no" class="java.lang.String"/>
+	<field name="father_name" class="java.lang.String"/>
+	<field name="offender_address" class="java.lang.String"/>
+	<field name="offence_date" class="java.lang.String"/>
+	<field name="city" class="java.lang.String"/>
+	<field name="imgPath" class="java.lang.String"/>
+	<field name="offence_list" class="java.util.List"/>
+	<field name="imgPath1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="802" splitType="Stretch">
+			<staticText>
+				<reportElement x="9" y="69" width="163" height="20" uuid="bcb73766-4e27-4093-99ad-6bb477284b5a"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[dzekad@Fkkuk@;krk@Xok-@bZ&pkyku ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="307" width="466" height="20" uuid="c8580df9-7445-4a95-be90-8ce4078c880c"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[bl lwpuk i= }kjk vkidks lwfpr fd;k tkrk gS fd ohfM;ksaxzkQh ,ao fMthVy QksVks xzkQh ls ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="551" width="506" height="20" uuid="786ac1b3-bff5-4d31-b6c4-bba07d02c612"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[gSA vU;Fkk uksfVl tkjh fnukad 15 fnol i”pkr~ vkidk pkyku fujkdj.k gsrq eku;h; U;k;ky; esa ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="635" width="83" height="20" uuid="379cd43e-72b5-43f3-8489-d48c846bd49d"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[Fkkuk izHkkjh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="102" width="153" height="20" uuid="1468283b-ad91-4944-a999-8f5ce70daa59"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="18" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[lM+d lqj{kk thou j{kk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="172" width="84" height="20" uuid="7eeb458a-52df-411b-97bf-988cc07846d8"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[MR/MRS -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="212" width="84" height="62" uuid="6e32d52e-f029-4d1c-b416-d3c6524b24ab"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[ADDRESS -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="192" width="85" height="20" uuid="68c64349-57a0-4465-a35a-04889e58007a"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[S/O,D/O - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="482" width="512" height="20" uuid="2dad7732-4e0c-43c2-8086-2b131e23dc41"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[;krk;kr fu;eksa ds mYya/ku djrs ik;k x;k gS tks fd eksVj  Oghdy ,DV ds rgr n.Muh; vijk/k gSA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="152" width="37" height="20" uuid="04cb088f-75a6-455c-93c3-eb2ec346e6b6"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[izfr]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="681" width="194" height="20" uuid="11ebf7e6-d454-447b-abc5-60a7836cfc06"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[Fkkuk ;krk;kr flVh lsUVj Xokfy;j ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="591" width="244" height="20" uuid="dc617dcd-e93d-4117-9143-d4dafb736558"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[;krk;kr fu;eksa dk ikyu dj lqjf{kr ;k=k djsaA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="69" width="100" height="20" uuid="d9b96816-dc71-41d0-8ef9-8802ea18702f"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="18" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[bZ & uksfVl]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="571" width="506" height="20" uuid="a47fca4e-67a9-423a-bdf8-b21bc96ec618"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[izLrqr fd;k tkosxkA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="69" width="69" height="20" uuid="301c9b08-b3b0-404a-bbce-e4c7b4e25d70"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="16" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[lwpuk i= ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="328" width="155" height="20" uuid="e9927e09-8558-40d5-87fd-9c2eb9a4b16e"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="49" y="276" width="85" height="20" uuid="6f1230c6-0efc-48f3-92b6-b55f579f11f5"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Mobile No. -]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="135" y="192" width="201" height="20" uuid="3f4789d9-fa45-417c-bb27-4d7165810c68"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{father_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="479" y="348" width="26" height="20" uuid="bb8fe142-d6a9-44d3-899d-2cc59037a0b7"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ij ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="30" width="425" height="20" uuid="f0f9837a-c712-418a-b4f7-8881816ec1a6"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="18" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[dk;kZy; Fkkuk ;krk;kr iqfyl flVh lsUVj ftyk & Xokfy;j ¼e-iz-½]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="511" width="487" height="20" uuid="659cae25-acbb-4c33-8ba2-916fad4564f6"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[mDr ;krk;kr fu;eksa dk mYya?ku “keuh; vijk/k gSA vr% vki ;krk;kr iqfyl Fkkuk flVh lsUVj]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="348" width="67" height="20" uuid="bf4ebf1b-80b3-436d-8a50-7a38a5fa962d"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[}kjk fnukad ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="0" width="83" height="20" uuid="dd2a28c1-5d3b-4e75-b8e0-eb4d852623cf"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Challan No. =]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="348" width="69" height="20" uuid="1b9819be-ee71-4aa9-a919-0fe449aa40e7"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[dks   LFkku]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" mode="Opaque" x="80" y="348" width="133" height="20" uuid="383e05e9-16d2-4c67-a718-511b02c7a7fb"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{offence_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="278" y="348" width="201" height="20" uuid="29c22f41-c09b-4153-af84-572ce23d3e35"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="531" width="508" height="20" uuid="8b4cdd37-f4cc-4e2b-8e1d-e32101c8c1c3"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[dk;kZy; esa izkar 10%00 cts ls lka; 05%00 cts rd leu “kqYd jkf”k tek dj jlhn izkIr dj ldrs]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="135" y="274" width="201" height="20" uuid="318c1059-c30b-4eb5-9e22-3c1fc10d86a0"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{offender_mob_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="328" width="337" height="20" uuid="e897adc9-b8d6-40a0-8b4e-3babefdedf97"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[;krk;kr iqfyl Xokfy;j }kjk vkids uke ls jftLVMZ okgu dzekad  ]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="134" y="172" width="202" height="20" uuid="a13911fd-a218-4cf6-888a-cd963de3f760"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_owner_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="135" y="214" width="201" height="62" uuid="6b8f835f-c456-4c9f-8534-75de19628957"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{offender_address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="0" width="90" height="20" uuid="30846394-39b3-402e-a6ad-6dc0c6833e75"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{traffic_police_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="49" y="14" width="430" height="342" uuid="2b85950c-2c95-40d0-bfed-6dc2c89a1b66"/>
+				<imageExpression><![CDATA[$F{imgPath}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="54" y="399" width="425" height="353" uuid="cec4cfaf-4a19-432a-9617-c0ada6cb11b5"/>
+				<imageExpression><![CDATA[$F{imgPath1}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

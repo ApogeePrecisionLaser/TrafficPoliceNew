@@ -1,0 +1,1332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <!-- <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>-->
+    <!-- ...........................Start Application specific (context) parameters.......................... -->
+    <context-param>
+        <param-name>driverClass</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>connectionString</param-name>
+        <param-value>jdbc:mysql://localhost:3306/traficpolice</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db_userName</param-name>
+        <!--           <param-value>jpss_2</param-value>-->
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <description>	</description>
+        <param-name>db_userPasswrod</param-name>
+        <!--        <param-value>jpss_1277</param-value>-->
+        <param-value>root</param-value>
+    </context-param>
+<!--    <servlet>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.survey.dataEntry.controller</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>-->
+    <servlet>
+        <servlet-name>EmailController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.EmailController</servlet-class>
+    </servlet>
+<!--    <servlet-mapping>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>-->
+    <!-- ...........................End Application specific (context) parameters.......................... -->
+    
+    
+<!--    web services-->
+    
+    <servlet>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>com.tp.webServices</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletAdaptor</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TrafficPoliceWebServices</servlet-name>
+        <servlet-class>com.tp.webServices.TrafficPoliceWebServices</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+<!--    end-->
+    
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>com.tp.general.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/LoginCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>before_login_home</servlet-name>
+        <jsp-file>/view/login/before_login_home.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>before_login_home</servlet-name>
+        <url-pattern>/beforeLoginHomeView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <jsp-file>/view/general/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmailController</servlet-name>
+        <url-pattern>/EmailController</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>beforeLoginHomeView</welcome-file>
+    </welcome-file-list>
+    <!-- Start of Organisation Controllers -->
+    <servlet>
+        <servlet-name>DataEntry orgDetailEntryView</servlet-name>
+        <jsp-file>/view/data_entry/orgDetailEntry.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgDetailEntryView</servlet-name>
+        <url-pattern>/orgDetailEntryView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry orgDetailEntryCont</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.OrgDetailEntryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgDetailEntryCont</servlet-name>
+        <url-pattern>/orgDetailEntryCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry orgName_view</servlet-name>
+        <jsp-file>/view/data_entry/organization_name.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgName_view</servlet-name>
+        <url-pattern>/orgName_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry orgNameCont</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.OrganisationNameController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgNameCont</servlet-name>
+        <url-pattern>/orgNameCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry organisation_view</servlet-name>
+        <jsp-file>/view/data_entry/orgOffice.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry organisation_view</servlet-name>
+        <url-pattern>/organisation_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry organisationCont</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.OrgOfficeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry organisationCont</servlet-name>
+        <url-pattern>/organisationCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry OrgOfficeType_view</servlet-name>
+        <jsp-file>/view/data_entry/org_office_type.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry OrgOfficeType_view</servlet-name>
+        <url-pattern>/orgOfficeType_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry orgOfficeTypeCont</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.OrgOfficeTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgOfficeTypeCont</servlet-name>
+        <url-pattern>/orgOfficeTypeCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry orgType_view</servlet-name>
+        <jsp-file>/view/data_entry/organisation_type.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgType_view</servlet-name>
+        <url-pattern>/orgType_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry orgTypeCont</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.OrganisationTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgTypeCont</servlet-name>
+        <url-pattern>/orgTypeCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry orgSubType_view</servlet-name>
+        <jsp-file>/view/data_entry/organisationSubType.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgSubType_view</servlet-name>
+        <url-pattern>/orgSubType_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry OrganisationSubTypeCont</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.OrganisationSubTypeCont</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry OrganisationSubTypeCont</servlet-name>
+        <url-pattern>/organisationSubTypeCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry organisationMap_view</servlet-name>
+        <jsp-file>/view/data_entry/organisationMap.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry organisationMap_view</servlet-name>
+        <url-pattern>/organisationMap_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry OrganisationMapCont</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.OrganisationMapCont</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry OrganisationMapCont</servlet-name>
+        <url-pattern>/mapOrgCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description>Client Associate Mapping View</description>
+        <servlet-name>DataEntry orgClientAssoMap_view</servlet-name>
+        <jsp-file>/view/data_entry/org_client_asso_map.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgClientAssoMap_view</servlet-name>
+        <url-pattern>/orgClientAssoMap_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry orgClientAssoMapCont</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.OrgClientAssoMapController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry orgClientAssoMapCont</servlet-name>
+        <url-pattern>/orgClientAssoMapCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry designation_view</servlet-name>
+        <jsp-file>/view/data_entry/designation.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry designation_view</servlet-name>
+        <url-pattern>/designation_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry designationCont</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.DesignationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry designationCont</servlet-name>
+        <url-pattern>/designationCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry keyPerson_view</servlet-name>
+        <jsp-file>/view/data_entry/keyperson.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry keyPerson_view</servlet-name>
+        <url-pattern>/keyPerson_view</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DataEntry personCount</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.KeypersonController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DataEntry personCount</servlet-name>
+        <url-pattern>/personCount.do</url-pattern>
+    </servlet-mapping>
+    <!-- End of Organisation Controllers -->
+    <!--Start of the report type-->
+    <servlet>
+        <servlet-name>reportsType</servlet-name>
+        <jsp-file>/view/trafficPolice/report_type.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reportsType</servlet-name>
+        <url-pattern>/reportType</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReportsTypeCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.ReportsTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReportsTypeCont</servlet-name>
+        <url-pattern>/reportsTypeCont</url-pattern>
+    </servlet-mapping>
+    <!--End of the report type-->
+    <servlet>
+        <servlet-name>userEntryByImage</servlet-name>
+        <jsp-file>/view/trafficPolice/userEntryByImage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userEntryByImage</servlet-name>
+        <url-pattern>/userEntryByImage</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>userEntryByImageCont.do</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.userEntryByImageController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>userEntryByImageCont.do</servlet-name>
+        <url-pattern>/userEntryByImageCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>trafficPolice</servlet-name>
+        <jsp-file>/view/trafficPolice/trafficpolice.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>trafficPolice</servlet-name>
+        <url-pattern>/trafficPoliceViewPage</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>trafficpolice_popupView</servlet-name>
+        <jsp-file>/view/trafficPolice/trafficpolice_popupView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>trafficpolice_popupView</servlet-name>
+        <url-pattern>/trafficpolice_popupView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TrafficPoliceCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.TrafficPoliceController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrafficPoliceCont</servlet-name>
+        <url-pattern>/trafficPoliceCont</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MultipleImage</servlet-name>
+        <jsp-file>/view/MapView/multipleImage.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MultipleImage</servlet-name>
+        <url-pattern>/MultipleImage</url-pattern>
+    </servlet-mapping>
+    <!--Start of city Loaction-->
+    <servlet>
+        <servlet-name>cityLocation</servlet-name>
+        <jsp-file>/view/trafficPolice/cityLocation.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cityLocation</servlet-name>
+        <url-pattern>/cityLocationView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CityLocationCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.CityLocationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CityLocationCont</servlet-name>
+        <url-pattern>/cityLocationCont</url-pattern>
+    </servlet-mapping>
+    <!--End of City Location-->
+    <!--Start of Act Origin-->
+    <servlet>
+        <servlet-name>actOrigin</servlet-name>
+        <jsp-file>/view/trafficPolice/act_origin.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>actOrigin</servlet-name>
+        <url-pattern>/actOrigin</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ActOriginCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.ActOriginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ActOriginCont</servlet-name>
+        <url-pattern>/actOriginCont</url-pattern>
+    </servlet-mapping>
+    <!--End of Act Origin-->
+    <!-- starting of Zone controller-->
+    <servlet>
+        <servlet-name>zoneNewController</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.ZoneNewController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>zoneNewController</servlet-name>
+        <url-pattern>/zoneTypeCont</url-pattern>
+    </servlet-mapping>
+    <!-- ending of  Zone controller-->
+    <!-- starting of  Zone view-->
+    <servlet>
+        <servlet-name>zoneNewView</servlet-name>
+        <jsp-file>/view/data_entry/zoneNewView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>zoneNewView</servlet-name>
+        <url-pattern>/zoneNewView</url-pattern>
+    </servlet-mapping>
+    <!-- ending of  Zone view-->
+    <!--start officer book type-->
+    <servlet>
+        <servlet-name>vehicleType</servlet-name>
+        <jsp-file>/view/trafficPolice/vehicleType.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vehicleType</servlet-name>
+        <url-pattern>/vehicleType</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>VehicleTypeCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.VehicleTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VehicleTypeCont</servlet-name>
+        <url-pattern>/vehicleTypeCont</url-pattern>
+    </servlet-mapping>
+    <!--end officer book type-->
+    <!--start Make type-->
+    <servlet>
+        <servlet-name>makeType</servlet-name>
+        <jsp-file>/view/trafficPolice/make.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>makeType</servlet-name>
+        <url-pattern>/makeType</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MakeTypeCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.MakeTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MakeTypeCont</servlet-name>
+        <url-pattern>/makeTypeCont</url-pattern>
+    </servlet-mapping>
+    <!--end make type-->
+    <servlet>
+        <servlet-name>TrafficPolice commercialType</servlet-name>
+        <jsp-file>/view/trafficPolice/commercial_type.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrafficPolice commercialType</servlet-name>
+        <url-pattern>/commercialTypeView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TrafficPolice commercialTypeCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.CommercialTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrafficPolice commercialTypeCont</servlet-name>
+        <url-pattern>/commercialTypeCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TrafficPolice caseStatus</servlet-name>
+        <jsp-file>/view/trafficPolice/case_status.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrafficPolice caseStatus</servlet-name>
+        <url-pattern>/caseStatusView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TrafficPolice caseStatusCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.CaseStatusController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrafficPolice caseStatusCont</servlet-name>
+        <url-pattern>/caseStatusCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TrafficPolice VehicleModelMapController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.VehicleModelMapController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrafficPolice VehicleModelMapController</servlet-name>
+        <url-pattern>/vehicleModelMapCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TrafficPolice vehicleModelMapView</servlet-name>
+        <jsp-file>/view/trafficPolice/vehicleModelMapView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrafficPolice vehicleModelMapView</servlet-name>
+        <url-pattern>/vehicleModelMapView</url-pattern>
+    </servlet-mapping>
+    <!--start Model type-->
+    <servlet>
+        <servlet-name>modelType</servlet-name>
+        <jsp-file>/view/trafficPolice/model.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>modelType</servlet-name>
+        <url-pattern>/modelType</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ModelTypeCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.ModelTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModelTypeCont</servlet-name>
+        <url-pattern>/modelTypeCont</url-pattern>
+    </servlet-mapping>
+    <!--end make type-->
+    <!--start officer book type-->
+    <servlet>
+        <servlet-name>officerBook</servlet-name>
+        <jsp-file>/view/trafficPolice/officerBook.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>officerBook</servlet-name>
+        <url-pattern>/officerBook</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>OfficerBookCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.OfficerBookController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OfficerBookCont</servlet-name>
+        <url-pattern>/officerBookCont</url-pattern>
+    </servlet-mapping>
+    <!--end officer book type-->
+    <!--start offence type-->
+    <servlet>
+        <servlet-name>offenceType</servlet-name>
+        <jsp-file>/view/trafficPolice/offenceType.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>offenceType</servlet-name>
+        <url-pattern>/offenceType</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>OffenceTypeCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.OffenceTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OffenceTypeCont</servlet-name>
+        <url-pattern>/offenceTypeCont</url-pattern>
+    </servlet-mapping>
+    <!--end offence type-->
+    <servlet>
+        <servlet-name>statusType</servlet-name>
+        <jsp-file>/view/trafficPolice/statusType.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>statusType</servlet-name>
+        <url-pattern>/statusType</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>StatusTypeCont</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.StatusTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StatusTypeCont</servlet-name>
+        <url-pattern>/statusTypeCont</url-pattern>
+    </servlet-mapping>
+    <!-- starting of city controller-->
+    <servlet>
+        <servlet-name>cityController</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.CityController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cityController</servlet-name>
+        <url-pattern>/cityTypeCont</url-pattern>
+    </servlet-mapping>
+    <!-- ending of city controller-->
+    <!-- starting of district controller-->
+    <servlet>
+        <servlet-name>districtController</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.DistrictController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>districtController</servlet-name>
+        <url-pattern>/districtTypeCont</url-pattern>
+    </servlet-mapping>
+    <!-- ending of district controller-->
+    <!-- starting of division controller-->
+    <servlet>
+        <servlet-name>divisionController</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.DivisionController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>divisionController</servlet-name>
+        <url-pattern>/divisionTypeCont</url-pattern>
+    </servlet-mapping>
+    <!-- ending of division controller-->
+    <!-- starting of State & UT controller-->
+    <servlet>
+        <servlet-name>stateutController</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.StateutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>stateutController</servlet-name>
+        <url-pattern>/stateutTypeCont</url-pattern>
+    </servlet-mapping>
+    <!-- ending of  State & UT controller-->
+    <!-- starting of Zone controller-->
+    <servlet>
+        <servlet-name>zoneController</servlet-name>
+        <servlet-class>com.tp.dataEntry.controller.ZoneController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>zoneController</servlet-name>
+        <url-pattern>/zonalCont</url-pattern>
+    </servlet-mapping>
+    <!-- ending of  Zone controller-->
+    <!-- starting of city view-->
+    <servlet>
+        <servlet-name>cityView</servlet-name>
+        <jsp-file>/view/data_entry/cityView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cityView</servlet-name>
+        <url-pattern>/cityView</url-pattern>
+    </servlet-mapping>
+    <!-- ending of city view-->
+    <!-- starting of district view-->
+    <servlet>
+        <servlet-name>districtView</servlet-name>
+        <jsp-file>/view/data_entry/districtView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>districtView</servlet-name>
+        <url-pattern>/districtView</url-pattern>
+    </servlet-mapping>
+    <!-- ending of district view-->
+    <!-- starting of division view-->
+    <servlet>
+        <servlet-name>divisionView</servlet-name>
+        <jsp-file>/view/data_entry/divisionView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>divisionView</servlet-name>
+        <url-pattern>/divisionView</url-pattern>
+    </servlet-mapping>
+    <!-- ending of division view-->
+    <!-- starting of  State & UT view-->
+    <servlet>
+        <servlet-name>stateutView</servlet-name>
+        <jsp-file>/view/data_entry/stateutView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>stateutView</servlet-name>
+        <url-pattern>/stateutView</url-pattern>
+    </servlet-mapping>
+    <!-- ending of  State & UT view-->
+    <!-- starting of  Zone view-->
+    <servlet>
+        <servlet-name>zoneView</servlet-name>
+        <jsp-file>/view/data_entry/zoneView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>zoneView</servlet-name>
+        <url-pattern>/zoneView</url-pattern>
+    </servlet-mapping>
+    <!-- ending of  Zone view-->
+    <!-- .......................Start License & Vehicle........................-->
+    <servlet>
+        <servlet-name>licenseDetailController</servlet-name>
+        <servlet-class>com.tp.licenseVehicle.controller.LicenseDetailController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>licenseDetailController</servlet-name>
+        <url-pattern>/licenseDetailCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>licenseDetailView</servlet-name>
+        <jsp-file>/view/licenseVehicle/licenseDetailView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>licenseDetailView</servlet-name>
+        <url-pattern>/licenseDetailView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>vehicleDetailController</servlet-name>
+        <servlet-class>com.tp.licenseVehicle.controller.VehicleDetailController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vehicleDetailController</servlet-name>
+        <url-pattern>/vehicleDetailCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>vehicleDetailView</servlet-name>
+        <jsp-file>/view/licenseVehicle/vehicleDetailView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vehicleDetailView</servlet-name>
+        <url-pattern>/vehicleDetailView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>vehicleLicenseMapController</servlet-name>
+        <servlet-class>com.tp.licenseVehicle.controller.VehicleLicenseMapController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vehicleLicenseMapController</servlet-name>
+        <url-pattern>/vehicleLicenseMapCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>vehicleLicenseMapView</servlet-name>
+        <jsp-file>/view/licenseVehicle/vehicleLicenseMapView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>vehicleLicenseMapView</servlet-name>
+        <url-pattern>/vehicleLicenseMapView</url-pattern>
+    </servlet-mapping>
+    <!-- ........................End License & Vehicle.........................-->
+    <!-- ........................Start general.........................-->
+    <servlet>
+        <servlet-name>TrafficPoliceSearchController</servlet-name>
+        <servlet-class>com.tp.general.controller.TrafficPoliceSearchController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrafficPoliceSearchController</servlet-name>
+        <url-pattern>/trafficPoliceSearchCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>trafficPoliceSearchView</servlet-name>
+        <jsp-file>/view/general/trafficPoliceSearchVeiw.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>trafficPoliceSearchView</servlet-name>
+        <url-pattern>/trafficPoliceSearchVeiw</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>trafficePoliceInsertView</servlet-name>
+        <jsp-file>/view/general/trafficePoliceInsertView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>trafficePoliceInsertView</servlet-name>
+        <url-pattern>/trafficePoliceInsertView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReceiptBookController</servlet-name>
+        <servlet-class>com.tp.general.controller.ReceiptBookController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReceiptBookController</servlet-name>
+        <url-pattern>/receiptBookCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>trafficePoliceReceiptView</servlet-name>
+        <jsp-file>/view/general/trafficePoliceReceiptView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>trafficePoliceReceiptView</servlet-name>
+        <url-pattern>/trafficePoliceReceiptView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReceiptSearchView</servlet-name>
+        <jsp-file>/view/general/ReceiptSearchView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReceiptSearchView</servlet-name>
+        <url-pattern>/receiptSearchView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TrafficPoliceQuickEntryController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.TrafficPoliceQuickEntryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TrafficPoliceQuickEntryController</servlet-name>
+        <url-pattern>/trafficPoliceQuickEntryCont.do</url-pattern>
+    </servlet-mapping>
+    <!-- ........................End general.........................-->
+    <servlet>
+        <servlet-name>caseProcessingController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.CaseProcessingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>caseProcessingController</servlet-name>
+        <url-pattern>/caseProcessingCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>caseProcessing</servlet-name>
+        <jsp-file>/view/trafficPolice/caseProcessing.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>caseProcessing</servlet-name>
+        <url-pattern>/caseProcessing</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>processingTypeController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.ProcessingTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>processingTypeController</servlet-name>
+        <url-pattern>/processingTypeCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>processing_type</servlet-name>
+        <jsp-file>/view/trafficPolice/processing_type.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>processing_type</servlet-name>
+        <url-pattern>/processing_type</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>relationTypeController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.RelationTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>relationTypeController</servlet-name>
+        <url-pattern>/relationTypeCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>relation_type</servlet-name>
+        <jsp-file>/view/trafficPolice/relation_type.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>relation_type</servlet-name>
+        <url-pattern>/relation_type</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>openMapWindowView</servlet-name>
+        <jsp-file>/view/trafficPolice/mapWindow.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>openMapWindowView</servlet-name>
+        <url-pattern>/openMapWindowView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>layoutindex</servlet-name>
+        <jsp-file>/layout/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>layoutindex</servlet-name>
+        <url-pattern>/layoutindex</url-pattern>
+    </servlet-mapping>
+    <!-- ........................Start Correspondence.........................-->
+    <servlet>
+        <servlet-name>CorrespondenceStatusController</servlet-name>
+        <servlet-class>com.tp.correspondence.controller.CorrespondenceStatusController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CorrespondenceStatusController</servlet-name>
+        <url-pattern>/correspondenceStatusCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>correspondenceStatusView</servlet-name>
+        <jsp-file>/view/correspondence/correspondenceStatusView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>correspondenceStatusView</servlet-name>
+        <url-pattern>/correspondenceStatusView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CorrespondenceRemarkController</servlet-name>
+        <servlet-class>com.tp.correspondence.controller.CorrespondenceRemarkController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CorrespondenceRemarkController</servlet-name>
+        <url-pattern>/correspondenceRemarkCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>correspondenceRemarkView</servlet-name>
+        <jsp-file>/view/correspondence/correspondenceRemarkView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>correspondenceRemarkView</servlet-name>
+        <url-pattern>/correspondenceRemarkView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CorrespondencePriorityController</servlet-name>
+        <servlet-class>com.tp.correspondence.controller.CorrespondencePriorityController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CorrespondencePriorityController</servlet-name>
+        <url-pattern>/correspondencePriorityCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>correspondencePriorityView</servlet-name>
+        <jsp-file>/view/correspondence/correspondencePriorityView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>correspondencePriorityView</servlet-name>
+        <url-pattern>/correspondencePriorityView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>typeOfDocumentController</servlet-name>
+        <servlet-class>com.tp.correspondence.controller.TypeOfDocumentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>typeOfDocumentController</servlet-name>
+        <url-pattern>/typeOfDocumentCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>typeOfDocumentView</servlet-name>
+        <jsp-file>/view/correspondence/typeOfDocumentView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>typeOfDocumentView</servlet-name>
+        <url-pattern>/typeOfDocumentView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CorrespondenceController</servlet-name>
+        <servlet-class>com.tp.correspondence.controller.CorrespondenceController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CorrespondenceController</servlet-name>
+        <url-pattern>/correspondenceCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Correspondence</servlet-name>
+        <jsp-file>/view/correspondence/correspondence.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Correspondence</servlet-name>
+        <url-pattern>/correspondenceView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TaskSchedulerController</servlet-name>
+        <servlet-class>com.tp.correspondence.controller.TaskSchedulerController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TaskSchedulerController</servlet-name>
+        <url-pattern>/taskSchedulerCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>taskSchedulerView</servlet-name>
+        <jsp-file>/view/correspondence/taskSchedulerView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>taskSchedulerView</servlet-name>
+        <url-pattern>/taskSchedulerView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>manageTaskView</servlet-name>
+        <jsp-file>/view/correspondence/manageTaskView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>manageTaskView</servlet-name>
+        <url-pattern>/manageTaskView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>OutgoingTaskController</servlet-name>
+        <servlet-class>com.tp.correspondence.controller.OutgoingTaskController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OutgoingTaskController</servlet-name>
+        <url-pattern>/outgoingTaskCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>outgoingTaskView</servlet-name>
+        <jsp-file>/view/correspondence/outgoingTaskView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>outgoingTaskView</servlet-name>
+        <url-pattern>/outgoingTaskView</url-pattern>
+    </servlet-mapping>
+    <!-- ........................End Corresspondence.........................-->
+    <!--                   Start   Shift                     -->
+    <servlet>
+        <servlet-name>ShiftShowController</servlet-name>
+        <servlet-class>com.bms.shift.controller.ShiftShowController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftShowController</servlet-name>
+        <url-pattern>/ShiftShowController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftController</servlet-name>
+        <servlet-class>com.bms.shift.controller.ShiftController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftController</servlet-name>
+        <url-pattern>/ShiftController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftKeyPersonMapController</servlet-name>
+        <servlet-class>com.bms.shift.controller.ShiftKeyPersonMapController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftKeyPersonMapController</servlet-name>
+        <url-pattern>/ShiftKeyPersonMapController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftLoginController</servlet-name>
+        <servlet-class>com.bms.shift.controller.ShiftLoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftLoginController</servlet-name>
+        <url-pattern>/shiftLoginCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftTimeController</servlet-name>
+        <servlet-class>com.bms.shift.controller.ShiftTimeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftTimeController</servlet-name>
+        <url-pattern>/ShiftTimeController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftDesinationLocationController</servlet-name>
+        <servlet-class>com.bms.shift.controller.ShiftDesinationLocationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftDesinationLocationController</servlet-name>
+        <url-pattern>/ShiftDesinationLocationController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Shift</servlet-name>
+        <jsp-file>/view/shift/shift.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Shift</servlet-name>
+        <url-pattern>/shift</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftDesignationLocation</servlet-name>
+        <jsp-file>/view/shift/shift_designation_location_map.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftDesignationLocation</servlet-name>
+        <url-pattern>/shiftdesignationlocation</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftTime</servlet-name>
+        <jsp-file>/view/shift/shifttime.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftTime</servlet-name>
+        <url-pattern>/shifttime</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftKeyPersonMap</servlet-name>
+        <jsp-file>/view/shift/shift_key_person_map.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftKeyPersonMap</servlet-name>
+        <url-pattern>/shiftkeypersonmap</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftShow</servlet-name>
+        <jsp-file>/view/shift/show.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftShow</servlet-name>
+        <url-pattern>/shiftshow</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LocationTypeController</servlet-name>
+        <servlet-class>com.bms.shift.controller.LocationTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LocationTypeController</servlet-name>
+        <url-pattern>/LocationTypeController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LocationType</servlet-name>
+        <jsp-file>/view/shift/location_type.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LocationType</servlet-name>
+        <url-pattern>/locationtype</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DesignationLocationTypeController</servlet-name>
+        <servlet-class>com.bms.shift.controller.DesignationLocationTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DesignationLocationTypeController</servlet-name>
+        <url-pattern>/DesignationLocationTypeController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DesignationLocationType</servlet-name>
+        <jsp-file>/view/shift/designation_location_type.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DesignationLocationType</servlet-name>
+        <url-pattern>/designationlocationtype</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftReasonController</servlet-name>
+        <servlet-class>com.bms.shift.controller.ShiftReasonController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftReasonController</servlet-name>
+        <url-pattern>/shiftReasonCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShiftReason</servlet-name>
+        <jsp-file>/view/shift/shiftReason.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShiftReason</servlet-name>
+        <url-pattern>/shiftreason</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AttendenceController</servlet-name>
+        <servlet-class>com.bms.shift.controller.AttendenceController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AttendenceController</servlet-name>
+        <url-pattern>/AttendenceController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Attendence</servlet-name>
+        <jsp-file>/view/shift/attendence.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Attendence</servlet-name>
+        <url-pattern>/attendence</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AttendenceViewController</servlet-name>
+        <servlet-class>com.bms.shift.controller.AttendenceViewController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AttendenceViewController</servlet-name>
+        <url-pattern>/AttendenceViewController</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AttendenceView</servlet-name>
+        <jsp-file>/view/shift/attendence_view.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AttendenceView</servlet-name>
+        <url-pattern>/attendenceview</url-pattern>
+    </servlet-mapping>
+    <!--                   End   Shift                     -->
+    <!---@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Ward Controller@@@@@@@@@@@@@@@@@@@@@@-->
+    <servlet>
+        <servlet-name>WardView</servlet-name>
+        <jsp-file>/view/location/wardView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WardView</servlet-name>
+        <url-pattern>/wardView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>wardTypeCont</servlet-name>
+        <servlet-class>com.bms.location.controller.WardController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>wardTypeCont</servlet-name>
+        <url-pattern>/wardTypeCont</url-pattern>
+    </servlet-mapping>
+    <!--Start of Area Controller -->
+    <servlet>
+        <servlet-name>Area_Type_View</servlet-name>
+        <jsp-file>/view/location/areaView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Area_Type_View</servlet-name>
+        <url-pattern>/area_TypeView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AreaTypeCont</servlet-name>
+        <servlet-class>com.bms.location.controller.AreaTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AreaTypeCont</servlet-name>
+        <url-pattern>/areaTypeCont</url-pattern>
+    </servlet-mapping>
+    <!--end of Area  Controller -->
+    <servlet>
+        <servlet-name>Location cityLocation</servlet-name>
+        <jsp-file>/view/location/cityLocation.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Location cityLocation</servlet-name>
+        <url-pattern>/cityLocatView</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Location CityLocationCont</servlet-name>
+        <servlet-class>com.bms.location.controller.CityLocationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Location CityLocationCont</servlet-name>
+        <url-pattern>/cityLocationCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>getCordinateMapWindow1 view</servlet-name>
+        <jsp-file>/view/MapView/getCordinateMapWindow1.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getCordinateMapWindow1 view</servlet-name>
+        <url-pattern>/getCordinate1</url-pattern>
+    </servlet-mapping>
+    <!--    <servlet>
+        <servlet-name>GeneralController</servlet-name>
+        <servlet-class>com.general.controller.GeneralController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GeneralController</servlet-name>
+        <url-pattern>/generalCont.do</url-pattern>
+    </servlet-mapping>
+    -->
+    <servlet>
+        <servlet-name>General calendar_view</servlet-name>
+        <jsp-file>/view/general/calendar.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>General calendar_view</servlet-name>
+        <url-pattern>/calendar_view</url-pattern>
+    </servlet-mapping>
+    <!--    <servlet-mapping>
+        <servlet-name>CameraInfoController</servlet-name>
+        <url-pattern>/CameraInfoCont.do</url-pattern>
+    </servlet-mapping>-->
+    <servlet>
+        <servlet-name>CameraInfoController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.CameraInfoController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CameraInfoController</servlet-name>
+        <url-pattern>/CameraInfoCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>camerInfoView</servlet-name>
+        <jsp-file>/view/trafficPolice/cameraInfo.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>camerInfoView</servlet-name>
+        <url-pattern>/cameraInfo</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ModeOfPaymentController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.ModeOfPaymentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModeOfPaymentController</servlet-name>
+        <url-pattern>/ModeOfPaymentCon.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>paymentTypeView</servlet-name>
+        <jsp-file>/view/trafficPolice/modeOfPayment.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>paymentTypeView</servlet-name>
+        <url-pattern>/paymentType</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChallanPaymentController</servlet-name>
+        <url-pattern>/ChallanPaymentCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ChallanPaymentController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.ChallanPaymentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>challanPaymentView</servlet-name>
+        <jsp-file>/view/trafficPolice/challanPaymentView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>challanPaymentView</servlet-name>
+        <url-pattern>/challanpayment</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DutyLocationTypeController</servlet-name>
+        <servlet-class>com.bms.location.controller.DutyLocationTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DutyLocationTypeController</servlet-name>
+        <url-pattern>/DutyLocationTypeCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DutyLocationView</servlet-name>
+        <jsp-file>/view/location/dutyLocationTypeView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DutyLocationView</servlet-name>
+        <url-pattern>/dutyLocation</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CameraTypeController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.CameraTypeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CameraTypeController</servlet-name>
+        <url-pattern>/CameraTypeCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CameraType</servlet-name>
+        <jsp-file>/view/trafficPolice/cameraType.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CameraType</servlet-name>
+        <url-pattern>/cameraType</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CameraFacingController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.CameraFacingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CameraFacingController</servlet-name>
+        <url-pattern>/CameraFacingCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CameraFacing</servlet-name>
+        <jsp-file>/view/trafficPolice/cameraFacingView.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CameraFacing</servlet-name>
+        <url-pattern>/cameraFacing</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MISController</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.MISController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MISController</servlet-name>
+        <url-pattern>/MISCont.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>misPage</servlet-name>
+        <jsp-file>/view/trafficPolice/mis_Page.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>misPage</servlet-name>
+        <url-pattern>/mis_page</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+     <servlet>
+        <servlet-name>OTPGeneral</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.OTPGeneral</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>OTPGeneral</servlet-name>
+        <url-pattern>/OTPGeneral</url-pattern>
+    </servlet-mapping>
+    
+    
+     <servlet>
+        <servlet-name>OTPverify</servlet-name>
+        <servlet-class>com.tp.trafficpolice.controller.OTPverify</servlet-class>
+    </servlet>
+    
+     <servlet-mapping>
+        <servlet-name>OTPverify</servlet-name>
+        <url-pattern>/OTPverify</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>Mobile</servlet-name>
+        <jsp-file>/view/OTP.jsp</jsp-file>
+    </servlet>
+    
+     <servlet-mapping>
+        <servlet-name>Mobile</servlet-name>
+        <url-pattern>/Mobile</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    
+</web-app>

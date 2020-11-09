@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TestReport_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="136f0c12-d7e1-4c7e-836f-623c17f015c9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="act_origin" class="java.lang.String"/>
+	<field name="penalty_amount" class="java.lang.String"/>
+	<field name="offence_type" class="java.lang.String"/>
+	<variable name="S_no" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{S_no}+1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="57" y="10" width="280" height="20" uuid="cca35f12-513e-4f79-beff-b08fa7862208"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[offence_type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="10" width="55" height="20" uuid="05c0a766-572d-491c-9f81-167ed32fb961"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[S_no]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="10" width="100" height="20" uuid="23425952-371d-475b-a603-c307ba2bcb1d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[penalty_amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="10" width="119" height="20" uuid="7ad47823-0a64-4c5d-aa15-dd793d020db8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Offence Act]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="337" y="0" width="100" height="20" isPrintWhenDetailOverflows="true" uuid="68975aaa-30cf-4f70-87ec-41a15ac6003c"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2" y="0" width="55" height="20" isPrintWhenDetailOverflows="true" uuid="3a6f7010-19f3-4c35-ac91-6098ea57aa77"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{S_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

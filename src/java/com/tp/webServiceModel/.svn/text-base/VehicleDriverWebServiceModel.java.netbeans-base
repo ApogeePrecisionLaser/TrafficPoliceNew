@@ -1,0 +1,292 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.tp.webServiceModel;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+
+
+
+/**
+ *
+ * @author Administrator
+ */
+
+public class VehicleDriverWebServiceModel {
+    private Connection connection;
+    private String message;
+    private String msgBgColor;
+    private final String COLOR_OK = "yellow";
+    private final String COLOR_ERROR = "red";
+
+ public  int isExits(String mobile_no)
+    {
+int count=0;
+        String query="SELECT count(key_person_id) FROM key_person as k,designation as d where k.designation_id=d.designation_id "
+                     + " and k.designation_id NOT IN(1,2,3) and k.mobile_no1='"+mobile_no+"' ";
+
+        try{
+           PreparedStatement ps=(PreparedStatement) connection.prepareStatement(query);
+           ResultSet rset = ps.executeQuery();
+          while (rset.next()) {
+          count = rset.getInt(1);
+           }
+         }
+        catch(Exception e)
+        {
+          System.out.println(e);
+        }
+
+   return   count;
+ }
+
+
+  public  int insertVehicleDriverRecord(String auto_no,String mobile_no,String latitude,String longitude,String imei_no,String officier_mobile_no,String date_time, String e_chalan,org.json.JSONArray jsonArray) {
+      int rowAffected = 0;
+       int vehicle_driver_id=0;
+        String query="insert into vehicle_driver (auto_no,mobile_no,date_time,latitude,longitude,created_by,imei_no, e_chalan) values(?,?,?,?,?,?,?, ?)";
+        String mapQuery = "INSERT INTO vehicle_offence_map (vehicle_driver_id, offence_type_id) VALUES(?,?)";
+        try{
+           PreparedStatement ps=(PreparedStatement) connection.prepareStatement(query);
+           ps.setString(1, auto_no);
+           ps.setString(2, mobile_no);
+           ps.setString(3, date_time);
+           ps.setDouble(4, Double.parseDouble(latitude));
+           ps.setDouble(5,  Double.parseDouble(longitude));
+           int id=getKeyPersonId(officier_mobile_no);
+           ps.setInt(6, id);
+           ps.setString(7, imei_no);
+           ps.setString(8, e_chalan);
+           rowAffected = ps.executeUpdate();
+           if(rowAffected > 0){
+              ResultSet rst = ps.getGeneratedKeys();
+               if(rst.next())
+                   vehicle_driver_id = rst.getInt(1);
+               if(e_chalan.equals("Y")){
+                  int length =jsonArray.length();
+                   for(int i = 0; i< length ; i++){
+                       int offence_type_id = jsonArray.getInt(i);
+                       ps=(PreparedStatement) connection.prepareStatement(mapQuery);
+                       ps.setInt(1, vehicle_driver_id);
+                       ps.setInt(2, offence_type_id);
+                       rowAffected = ps.executeUpdate();
+                   }
+
+               }
+
+           }
+        }
+        catch(Exception e) {
+          System.out.println(e);
+        }
+   return   vehicle_driver_id;
+ }
+  public  int getKeyPersonId(String mobile_no)
+    {
+
+       int rowsAffected=0;
+
+        String query="select key_person_id from key_person where mobile_no1='"+mobile_no+"' ";
+        try{
+           PreparedStatement ps=(PreparedStatement) connection.prepareStatement(query);
+           ResultSet rs= ps.executeQuery();
+           while(rs.next())
+           {
+            rowsAffected=rs.getInt("key_person_id");
+           }
+        }
+        catch(Exception e)
+        {
+          System.out.println(e);
+        }
+
+   return   rowsAffected;
+ }
+
+    public int insertImageRecord(String image_name, int kp_id){
+        DateFormat dateFormat = new SimpleDateFormat("dd.MMMMM.yyyy/ hh:mm:ss aaa");
+        Date date = new Date();
+        String current_date = dateFormat.format(date);
+        int rowsAffected = 0;
+        String imageQuery = "INSERT INTO general_image_details (image_name, image_destination_id, date_time, description,key_person_id) "
+                    + " VALUES(?, ?, ?, ?,?)";
+        try{
+            PreparedStatement pstmt = connection.prepareStatement(imageQuery);
+            pstmt.setString(1, image_name);
+            pstmt.setInt(2, getimage_destination_id("e_challan"));
+            pstmt.setString(3, current_date);
+            pstmt.setString(4, "this image is form mini_app");
+            pstmt.setInt(5, kp_id);
+            rowsAffected = pstmt.executeUpdate();
+            pstmt.close();
+        } catch (Exception e) {
+            System.out.println("Error:keypersonModel--insertRecord-- " + e);
+        }
+        return rowsAffected;
+    }
+
+
+    public JSONArray getOffence(){
+        JSONArray jsonArray = new JSONArray();
+        DateFormat dateFormat = new SimpleDateFormat("dd.MMMMM.yyyy/ hh:mm:ss aaa");
+        Date date = new Date();
+        String current_date = dateFormat.format(date);
+        int rowsAffected = 0;
+        String Query = "SELECT ot.offence_type_id, count(ot.offence_type_id) offence, offence_code,act, offence_type, penalty_amount "
+                + " FROM traffic_offence_map tom, offence_type ot "
+                + " WHERE ot.offence_type_id=tom.offence_type_id "
+                + " GROUP BY act ORDER BY offence DESC LIMIT 0, 10";
+        try{
+            ResultSet rs = connection.prepareStatement(Query).executeQuery();
+            while(rs.next()){
+                JSONObject jsonObj = new JSONObject();
+                jsonObj.put("offence_type_id", rs.getInt("offence_type_id"));
+                jsonObj.put("offence_code", rs.getString("offence_code"));
+                jsonObj.put("act", rs.getString("act"));
+                jsonObj.put("offence_type", rs.getString("offence_type"));
+                jsonObj.put("penalty_amount", rs.getDouble("penalty_amount"));
+                jsonArray.add(jsonObj);
+            }
+            rs.close();
+        } catch (Exception e) {
+            System.out.println("Error:keypersonModel--insertRecord-- " + e);
+        }
+        return jsonArray;
+    }
+
+         public int getimage_destination_id(String image_uploaded_for) {
+        String query;
+        int image_destination_id = 0;
+        query = " SELECT image_destination_id, destination_path from image_destination AS id , image_uploaded_for As i "
+                + " WHERE id.image_uploaded_for_id=i.image_uploaded_for_id AND i.image_uploaded_for= ? ";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, image_uploaded_for);
+            ResultSet rset = pstmt.executeQuery();
+            if (rset.next()) {
+                String destination_path = rset.getString("destination_path");
+                System.out.println(destination_path);
+                rset.getInt("image_destination_id");
+                //System.out.println("image_destination_id = " + rset.getInt("image_destination_id"));
+                image_destination_id = rset.getInt("image_destination_id");
+                System.out.println(image_destination_id);
+            }
+
+        } catch (Exception ex) {
+            System.out.println("Error: UploadBillImageModel-getimage_destination_id-" + ex);
+        }
+        return image_destination_id;
+    }
+
+ public String sendSmsToAssignedFor(String numberStr1, String messageStr1) {
+       String result = "";
+       try {
+           String host_url = "http://login.smsgatewayhub.com/api/mt/SendSMS?";//"http://api.mVaayoo.com/mvaayooapi/MessageCompose?";
+//           String tempMessage = messageStr1;
+//           String sender_id = java.net.URLEncoder.encode("TEST SMS", "UTF-8");         // e.g. "TEST+SMS"
+           System.out.println("messageStr1 is = " + messageStr1);
+           messageStr1 = java.net.URLEncoder.encode(messageStr1, "UTF-8");
+           String queryString = "APIKey=WIOg7OdIzkmYTrqTsw262w&senderid=JPSOFT&channel=2&DCS=8&flashsms=0&number=" + numberStr1 + "&text=" + messageStr1 + "&route=";
+           String url = host_url + queryString;
+           result = callURL(url);
+           System.out.println("SMS URL: " + url);
+       } catch (Exception e) {
+           result = e.toString();
+           System.out.println("SMSModel sendSMS() Error: " + e);
+       }
+       return result;
+   }
+
+   private String callURL(String strURL) {
+       String status = "";
+       try {
+           java.net.URL obj = new java.net.URL(strURL);
+           HttpURLConnection httpReq = (HttpURLConnection) obj.openConnection();
+           httpReq.setDoOutput(true);
+           httpReq.setInstanceFollowRedirects(true);
+           httpReq.setRequestMethod("GET");
+           status = httpReq.getResponseMessage();
+       } catch (MalformedURLException me) {
+           status = me.toString();
+       } catch (IOException ioe) {
+           status = ioe.toString();
+       } catch (Exception e) {
+           status = e.toString();
+       }
+       return status;
+   }
+
+   public static String random(int size) {
+        StringBuilder generatedToken = new StringBuilder();
+        try {
+            SecureRandom number = SecureRandom.getInstance("SHA1PRNG");
+            // Generate 20 integers 0..20
+            for (int i = 0; i < size; i++) {
+                generatedToken.append(number.nextInt(9));
+            }
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
+        return generatedToken.toString();
+    }
+
+
+    public boolean makeDirectory(String dirPathName) {
+        boolean result = false;
+        File directory = new File(dirPathName);
+        if (!directory.exists()) {
+            result = directory.mkdir();
+        }
+        return result;
+    }
+
+
+    
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMsgBgColor() {
+        return msgBgColor;
+    }
+
+    public void setMsgBgColor(String msgBgColor) {
+        this.msgBgColor = msgBgColor;
+    }
+    public void closeConnection() {
+        try {
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("CorrespondencePriorityModel closeConnection() Error: " + e);
+        }
+    }
+}

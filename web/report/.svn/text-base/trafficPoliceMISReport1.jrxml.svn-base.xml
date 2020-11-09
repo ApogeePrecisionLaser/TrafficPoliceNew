@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="MainDataSet">
+		<parameter name="parameter1" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="act1" class="java.util.List"/>
+	<parameter name="act2" class="java.lang.String"/>
+	<parameter name="act3" class="java.lang.String"/>
+	<parameter name="act4" class="java.lang.String"/>
+	<parameter name="act5" class="java.lang.String"/>
+	<parameter name="act6" class="java.lang.String"/>
+	<parameter name="act7" class="java.lang.String"/>
+	<parameter name="act8" class="java.lang.String"/>
+	<parameter name="act9" class="java.lang.String"/>
+	<parameter name="act10" class="java.lang.String"/>
+	<parameter name="act11" class="java.lang.String"/>
+	<parameter name="act12" class="java.lang.String"/>
+	<parameter name="act13" class="java.lang.String"/>
+	<parameter name="act14" class="java.lang.String"/>
+	<parameter name="act15" class="java.lang.String"/>
+	<parameter name="act16" class="java.lang.String"/>
+	<parameter name="act17" class="java.lang.String"/>
+	<parameter name="act18" class="java.lang.String"/>
+	<parameter name="act19" class="java.lang.String"/>
+	<parameter name="act20" class="java.lang.String"/>
+	<field name="key_person_name" class="java.lang.String"/>
+	<field name="act" class="java.lang.String"/>
+	<field name="no_of_challan" class="java.lang.Integer"/>
+	<variable name="s_no" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{s_no}+1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="130" y="4" width="284" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Traffic Police MIS Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="31" height="20"/>
+				<textElement/>
+				<text><![CDATA[S.No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="31" y="0" width="75" height="20"/>
+				<textElement/>
+				<text><![CDATA[Officer Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="163" y="0" width="41" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{act2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="0" width="57" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$P{act1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="0" width="41" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{act3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="245" y="0" width="41" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{act4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="286" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{act5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="0" width="44" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{act6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="44" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{act7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="0" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{act8}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="0" width="42" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{act9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="498" y="0" width="46" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{act10}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="31" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{s_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="0" width="75" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{key_person_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="0" width="57" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{no_of_challan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="163" y="0" width="41" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{no_of_challan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

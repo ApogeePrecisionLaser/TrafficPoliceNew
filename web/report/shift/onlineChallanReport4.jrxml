@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="onlineChallanReport4" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.8264462809917354"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\TrafficPoliceNew\\web\\report\\shift\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="offender_address" class="java.lang.String"/>
+	<field name="city" class="java.lang.String"/>
+	<field name="deposited_amount" class="java.lang.String"/>
+	<field name="vehicle_no" class="java.lang.String"/>
+	<field name="offence_date" class="java.lang.String"/>
+	<field name="offence_type" class="java.lang.String"/>
+	<field name="act_origin" class="java.lang.String"/>
+	<field name="penalty_amount" class="java.lang.String"/>
+	<field name="imgPath1" class="java.lang.String"/>
+	<field name="challan_no" class="java.lang.String"/>
+	<field name="vehicle_class" class="java.lang.String"/>
+	<field name="imgPath" class="java.lang.String"/>
+	<field name="office_mob_no" class="java.lang.String"/>
+	<field name="portal_name" class="java.lang.String"/>
+	<field name="website_link" class="java.lang.String"/>
+	<field name="vehicle_owner_name" class="java.lang.String"/>
+	<field name="father_name" class="java.lang.String"/>
+	<field name="offender_mob_no" class="java.lang.String"/>
+	<field name="offence_list" class="java.util.List"/>
+	<field name="traffic_police_id" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="665" splitType="Stretch">
+			<textField>
+				<reportElement x="361" y="325" width="155" height="20"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="50" y="305" width="466" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[bl lwpuk i= }kjk vkidks lwfpr fd;k tkrk gS fd ohfM;ksaxzkQh ,ao fMthVy QksVks xzkQh ls ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="140" width="37" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[izfr]]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="325" width="337" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[;krk;kr iqfyl Xokfy;j }kjk vkids uke ls jftLVMZ okgu dzekad  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="35" y="262" width="85" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Mobile No -]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="121" y="200" width="201" height="62"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{offender_address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="121" y="180" width="201" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{father_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="120" y="160" width="202" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vehicle_owner_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="36" y="180" width="85" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[S/O,D/O - ]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="121" y="262" width="201" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{offender_mob_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="36" y="160" width="84" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[MR/MRS -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="345" width="67" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[}kjk fnukad ]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" mode="Opaque" x="91" y="345" width="133" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{offence_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="224" y="345" width="69" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[dks   LFkku]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" mode="Opaque" x="293" y="345" width="197" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="490" y="345" width="26" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[ij ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="22" width="425" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="18" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[dk;kZy; Fkkuk ;krk;kr iqfyl flVh lsUVj ftyk & Xokfy;j ¼e-iz-½]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="60" width="163" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[dzekad@Fkkuk@;krk@Xok-@bZ&pkyku ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="60" width="69" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="16" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[lwpuk i= ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="93" width="153" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="18" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[lM+d lqj{kk thou j{kk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="60" width="100" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="18" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[bZ & uksfVl]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="13" y="378" width="515" height="62"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{offence_list})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "onlineChallanReport4_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="13" y="478" width="512" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[;krk;kr fu;eksa ds mYya/ku djrs ik;k x;k gS tks fd eksVj  Oghdy ,DV ds rgr n.Muh; vijk/k gSA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="508" width="487" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[mDr ;krk;kr fu;eksa dk mYya?ku “keuh; vijk/k gSA vr% vki ;krk;kr iqfyl Fkkuk flVh lsUVj]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="528" width="508" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[dk;kZy; esa izkar 10%00 cts ls lka; 05%00 cts rd leu “kqYd jkf”k tek dj jlhn izkIr dj ldrs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="548" width="506" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[gSA vU;Fkk uksfVl tkjh fnukad 15 fnol i”pkr~ vkidk pkyku fujkdj.k gsrq eku;h; U;k;ky; esa ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="568" width="506" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[izLrqr fd;k tkosxkA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="594" width="244" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[;krk;kr fu;eksa dk ikyu dj lqjf{kr ;k=k djsaA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="387" y="614" width="83" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[Fkkuk izHkkjh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="645" width="194" height="20"/>
+				<textElement>
+					<font fontName="Kruti Dev 010" size="15" pdfEncoding="Identity-H"/>
+				</textElement>
+				<text><![CDATA[Fkkuk ;krk;kr flVh lsUVj Xokfy;j ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="200" width="84" height="62"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[ADDRESS -]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="0" width="90" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{traffic_police_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="372" y="0" width="83" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Challan No. =]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="21" y="420" width="507" height="368"/>
+				<imageExpression><![CDATA[$F{imgPath1}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="21" y="13" width="507" height="397"/>
+				<imageExpression><![CDATA[$F{imgPath}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
